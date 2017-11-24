@@ -1,0 +1,4 @@
+rootProject.name = 'springbootVueGradle'
+include 'server'
+include 'web'
+
