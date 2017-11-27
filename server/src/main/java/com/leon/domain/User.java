@@ -1,11 +1,13 @@
 package com.leon.domain;
 
+import java.io.Serializable;
+
 /**
  * Author: jianliangzhang
  * Date: 2017/11/24
  * Time: 19:18
  */
-public class User {
+public class User implements Serializable{
     private String id;
     private String userName;
     private String age;
