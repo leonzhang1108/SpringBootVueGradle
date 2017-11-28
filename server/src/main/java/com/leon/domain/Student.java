@@ -7,9 +7,9 @@ import java.io.Serializable;
  * Date: 2017/11/24
  * Time: 19:18
  */
-public class User implements Serializable{
+public class Student implements Serializable{
     private String id;
-    private String userName;
+    private String name;
     private String age;
     private String sex;
 
@@ -21,12 +21,12 @@ public class User implements Serializable{
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getname() {
+        return name;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setname(String name) {
+        this.name = name;
     }
 
     public String getAge() {
