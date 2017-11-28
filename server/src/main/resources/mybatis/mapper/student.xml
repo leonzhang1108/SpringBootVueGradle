@@ -3,7 +3,21 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.leon.dao.StudentDao">
-    <select id="getAll" resultType="com.leon.domain.Student">
-        SELECT * FROM STUDENT
+    <select id="getAll" resultMap="StudentDetail">
+        SELECT * FROM STUDENT LEFT JOIN class_in_school ON student.classId=class_in_school.id
     </select>
+    
+    <resultMap id="StudentDetail" type="com.leon.domain.Student">
+        <id column="id" property="id"></id>
+        <result column="name" property="name"></result>
+        <result column="age" property="age"></result>
+        <result column="sex" property="sex"></result>
+        <association property="classInSchool" javaType="com.leon.domain.ClassInSchool">
+            <id column="id" property="id"></id>
+            <result column="teacher" property="teacher"></result>
+            <result column="classNo" property="classNo"></result>
+            <result column="floor" property="floor"></result>
+        </association>
+    </resultMap>
+
 </mapper>

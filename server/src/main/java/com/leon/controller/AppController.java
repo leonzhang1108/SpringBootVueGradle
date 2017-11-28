@@ -4,7 +4,9 @@
  * Time: 15:41
  */
 package com.leon.controller;
+import com.leon.dao.ClassDao;
 import com.leon.dao.StudentDao;
+import com.leon.domain.ClassInSchool;
 import com.leon.domain.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,13 +21,16 @@ import java.util.Map;
 public class AppController {
     @Autowired
     private StudentDao stuDao;
+    @Autowired
+    private ClassDao clsDao;
 
     //简单的后台接口，用于测试
     @RequestMapping(value = "/info", method = RequestMethod.GET)
     public Object info(){
-        List<Student> students = stuDao.getAll();
+//        List<Student> result = stuDao.getAll();
+        List<ClassInSchool> result = clsDao.getAll();
         Map<String, Object> map = new HashMap<>();
-        map.put("user", students);
+        map.put("user", result);
         return map;
     }
 }

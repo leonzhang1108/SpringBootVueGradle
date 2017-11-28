@@ -8,16 +8,26 @@ import java.io.Serializable;
  * Time: 19:18
  */
 public class Student implements Serializable{
-    private String id;
+    private int id;
     private String name;
     private String age;
     private String sex;
 
-    public String getId() {
+    private ClassInSchool classInSchool;
+
+    public ClassInSchool getClassInSchool() {
+        return classInSchool;
+    }
+
+    public void setClassInSchool(ClassInSchool classInSchool) {
+        this.classInSchool = classInSchool;
+    }
+
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
