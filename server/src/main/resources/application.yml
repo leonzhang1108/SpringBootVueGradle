@@ -9,10 +9,11 @@ spring:
     username: root
     password: 9liang01108
     driver-class-name: com.mysql.jdbc.Driver
+    schema: classpath:database/*.sql
 
 mybatis:
-#  config-location: classpath:mybatis/mybatis-config.xml
   configuration:
     mapUnderscoreToCamelCase: true
     useColumnLabel: true
+#  config-location: classpath:mybatis/mybatis-config.xml
   mapper-locations: classpath:mybatis/mapper/*.xml
