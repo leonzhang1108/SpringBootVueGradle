@@ -9,6 +9,20 @@
         :value="item.id">
       </el-option>
     </el-select>
+    <el-form :model="form" label-width="80px" ref="classForm" :rules="rules">
+      <el-form-item label="teacher:" prop="teacher">
+        <el-input v-model="form.teacher"></el-input>
+      </el-form-item>
+      <el-form-item label="classNo:" prop="classNo">
+        <el-input v-model="form.classNo"></el-input>
+      </el-form-item>
+      <el-form-item label="floor:">
+        <el-input-number v-model="form.floor" :min="1" :max="10" />
+      </el-form-item>
+      <el-form-item>
+        <el-button type="primary" @click="onSubmit">立即创建</el-button>
+      </el-form-item>
+    </el-form>
   </div>
 </template>
 
@@ -22,26 +36,49 @@ export default {
       .then(res => {
         this.classes = res
       })
-      .catch(err => console.log(err));
+      .catch(err => console.log(err))
 
-    fetch
-      .post("/api/class/save", {
-        teacher: 'test',
-        classNo: '666',
-        floor: 88
-      })
-      .then(res => {
-        this.classes = res
-      })
-      .catch(err => console.log(err));
+  },
+  methods: {
+    onSubmit() {
+      this.$refs["classForm"].validate(valid => {
+        if(valid) {
+          fetch
+            .post("/api/class/save", this.form)
+            .then(res => {  
+              this.$message('插入成功')
+            })
+            .catch(err => console.log(err))
 
+          this.$refs["classForm"].resetFields()
+        } else {
+          return false
+        }
+      })
+    }
   },
   data() {
     return {
       msg: "Welcome to Vue.js App",
       classes: [],
-      value: ''
-    };
+      value: '',
+      form: {
+        teacher: '',
+        classNo: '',
+        floor: '',
+      },
+      rules: {
+        teacher: [{ required: true, message: '请输入教师名称', trigger: 'blur' }],
+        classNo: [{ required: true, message: '请输入教室名称', trigger: 'blur' }]
+      }
+    }
   }
-};
+}
 </script>
+<style>
+.el-form {
+  margin-top: 20px;
+  width: 400px;
+}
+</style>
+

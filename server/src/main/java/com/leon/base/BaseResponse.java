@@ -6,14 +6,23 @@ package com.leon.base;
  * Time: 14:48
  */
 public class BaseResponse {
+
+
     private Object result;
-    private Head head;
+    private Head head = new Head(0);
 
     public Object getResult() {
         return result;
     }
 
+    public BaseResponse() {
+    }
+
+    public BaseResponse(Object result) {
+        this.result = result;
+    }
     public BaseResponse(Object result, Head head) {
+
         this.result = result;
         this.head = head;
     }

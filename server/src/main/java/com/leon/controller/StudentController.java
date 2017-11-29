@@ -28,7 +28,7 @@ public class StudentController {
         List<Student> result = stuDao.getAll();
         Map<String, Object> map = new HashMap<>();
         map.put("user", result);
-        return new BaseResponse(result, new Head(0));
+        return new BaseResponse(result);
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)

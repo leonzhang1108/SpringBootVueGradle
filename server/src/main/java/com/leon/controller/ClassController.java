@@ -28,17 +28,16 @@ public class ClassController {
     //简单的后台接口，用于测试
     @ApiOperation(value="检索教室")
     @RequestMapping(value = "/info", method = RequestMethod.GET)
-    public Object info(){
-//        List<Student> result = stuDao.getAll();
+    public BaseResponse info(){
         List<ClassInSchool> result = clsDao.getAll();
         Map<String, Object> map = new HashMap<>();
         map.put("user", result);
-        return new BaseResponse(result, new Head(0));
+        return new BaseResponse(result);
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public void save(@RequestBody ClassInSchool classInSchool) {
-        System.out.println(classInSchool);
+    public BaseResponse save(@RequestBody ClassInSchool classInSchool) {
         clsDao.insertClass(classInSchool);
+        return new BaseResponse();
     }
 }

@@ -2,7 +2,7 @@
  * @Author: Leon Zhang 
  * @Date: 2017-11-21 13:07:21 
  * @Last Modified by: Leon Zhang
- * @Last Modified time: 2017-11-29 16:54:43
+ * @Last Modified time: 2017-11-29 17:31:37
  */
 
 const Axios = require('axios')
@@ -26,9 +26,9 @@ axiosModel.defaults.responseType = 'json'
 axiosModel.defaults.transformRequest = [
   function (data) {
     //数据处理
-    let req = {
-      data: data
-    }
+    // let req = {
+    //   data: data
+    // }
     return JSON.stringify(data)
   }
 ]
@@ -64,7 +64,7 @@ ajaxMethod.forEach(method => {
     return new Promise(function (resolve, reject) {
       axiosModel[method](uri, data, config)
         .then(response => {
-          console.log('fetchfetch success')
+          console.log('fetch success')
           /*根据后台数据进行处理
            *1 code===200   正常数据+错误数据     code!==200   网络异常等
            *2 code===200   正常数据     code!==200   错误数据+网络异常等
