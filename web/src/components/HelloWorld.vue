@@ -6,7 +6,7 @@
         v-for="item in classes"
         :key="item.id"
         :label="item.teacher"
-        :value="item.id">
+        :value="item.teacher">
       </el-option>
     </el-select>
     <el-form :model="form" label-width="80px" ref="classForm" :rules="rules">
@@ -31,26 +31,29 @@ import fetch from "util/fetch";
 export default {
   name: "HelloWorld",
   mounted() {
-    fetch
-      .get("/api/class/info")
-      .then(res => {
-        this.classes = res
-      })
-      .catch(err => console.log(err))
-
+    this.getClasses()
   },
   methods: {
+    getClasses() {
+      fetch
+        .get("/api/class/info")
+        .then(res => {
+          this.classes = res
+        })
+        .catch(err => console.log(err))
+    },
     onSubmit() {
       this.$refs["classForm"].validate(valid => {
+        console.log(this.form)
         if(valid) {
           fetch
             .post("/api/class/save", this.form)
             .then(res => {  
               this.$message('插入成功')
+              this.$refs["classForm"].resetFields()
+              this.getClasses()
             })
             .catch(err => console.log(err))
-
-          this.$refs["classForm"].resetFields()
         } else {
           return false
         }
