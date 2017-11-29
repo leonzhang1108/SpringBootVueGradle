@@ -12,7 +12,7 @@ import java.util.List;
  * Time: 18:49
  */
 @Mapper
-public interface ClassDao {
+public interface ClassDAO {
     public List<ClassInSchool> getAll();
     public void insertClass(ClassInSchool classInSchool);
 }

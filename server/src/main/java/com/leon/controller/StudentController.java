@@ -1,8 +1,7 @@
 package com.leon.controller;
 
 import com.leon.base.BaseResponse;
-import com.leon.base.Head;
-import com.leon.dao.StudentDao;
+import com.leon.dao.StudentDAO;
 import com.leon.domain.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +20,7 @@ import java.util.Map;
 public class StudentController {
 
     @Autowired
-    private StudentDao stuDao;
+    private StudentDAO stuDao;
 
     @RequestMapping(value = "/info", method = RequestMethod.GET)
     public Object info(){

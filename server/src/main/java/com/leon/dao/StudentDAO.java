@@ -13,7 +13,7 @@ import java.util.List;
  * Time: 11:52
  */
 @Mapper
-public interface StudentDao {
+public interface StudentDAO {
 
     public List<Student> getAll();
 

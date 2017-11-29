@@ -5,8 +5,7 @@
  */
 package com.leon.controller;
 import com.leon.base.BaseResponse;
-import com.leon.base.Head;
-import com.leon.dao.ClassDao;
+import com.leon.dao.ClassDAO;
 import com.leon.domain.ClassInSchool;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +22,7 @@ import java.util.Map;
 @RequestMapping("/class")
 public class ClassController {
     @Autowired
-    private ClassDao clsDao;
+    private ClassDAO clsDao;
 
     //简单的后台接口，用于测试
     @ApiOperation(value="检索教室")
