@@ -1,13 +1,12 @@
 <template>
-  <div class='menu-wrap'>
-    <router-link 
-      v-for='page in pages' 
-      class="item"
-      key='$index' 
-      :to="page.router" >
-      {{page.name}}
-    </router-link>
-  </div>
+  <el-menu>
+    <el-menu-item v-for='page in pages' key='$index' >
+      <router-link 
+        :to="page.router" >
+        {{page.name}}
+      </router-link>
+    </el-menu-item>
+  </el-menu>
 </template>
 <script>
 export default {
@@ -34,15 +33,8 @@ export default {
 }
 </script>
 <style>
-.menu-wrap {
-  position: fixed;
-  background: aqua;
-  float: left;
-  width: 200px;
+.el-menu {
   height: 100%;
-}
-.item {
-  display: block;
 }
 </style>
 
