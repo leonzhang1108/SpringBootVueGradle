@@ -1,11 +1,11 @@
 <template>
-  <div class="child-item">
+  <el-card class="child-item">
     <slot name="header"></slot>
     <h3 @click="childClick">child{{ index + 1 }}: {{ msg.content }}</h3>
-    <input v-focus="index" v-model="msg.content" />
+    <el-input v-focus="index" v-model="msg.content" />
     <slot></slot>
     <slot name="footer"></slot>
-  </div>
+  </el-card>
 </template>
 
 <script>
@@ -36,9 +36,5 @@ export default {
 </script>
 
 <style>
-  .child-item {
-    margin-bottom: 10px;
-    padding: 10px 0;
-    border: 1px solid #ccc;
-  }
+
 </style>

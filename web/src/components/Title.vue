@@ -1,12 +1,12 @@
 <template>
-  <div>
+  <el-card>
     <slot name='msg'
       v-for='(msg, index) in msgs'
       :content='msg.content'
       :index='index'
     >
     </slot>
-  </div>
+  </el-card>
 </template>
 
 <script>

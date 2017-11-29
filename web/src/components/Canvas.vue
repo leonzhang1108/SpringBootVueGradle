@@ -1,7 +1,5 @@
 <template>
-  <div class="canvas-wrap">
-    <canvas id="canvas" class="canvas"></canvas>
-  </div>
+  <canvas id="canvas" class="canvas"></canvas>
 </template>
 <script>
 export default {
@@ -151,13 +149,5 @@ export default {
 <style>
 .canvas-wrap {
   background: #000;
-}
-canvas {
-  bottom: 0;
-  left: 0;
-  margin: auto;
-  position: absolute;
-  right: 0;
-  top: 0;
 }
 </style>

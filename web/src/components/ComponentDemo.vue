@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TitleList :msgs="msgs">
+    <TitleList :msgs="msgs" class="title-item">
       <div
         class="title"
         slot="msg"
@@ -15,8 +15,8 @@
       :index='index' 
       @onChildClick='childEvent' 
     >
-      <div slot="header">this is header</div>
-      <div slot="footer">this is footer</div>
+      <el-header class="item-header" slot="header">this is header</el-header>
+      <el-footer class="item-footer" slot="footer">this is footer</el-footer>
     </ChildList>
   </div>
 </template>
@@ -70,5 +70,13 @@ export default {
 .title {
   font-size: 35px;
   font-weight: bold;
+}
+.title-item, .child-item {
+  margin-bottom: 10px;
+  padding: 10px 0;
+  border: 1px solid #ccc;
+}
+.item-header, .item-footer {
+  background: #ccc;
 }
 </style>

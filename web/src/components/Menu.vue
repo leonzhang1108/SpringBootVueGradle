@@ -1,11 +1,14 @@
 <template>
   <el-menu>
-    <el-menu-item v-for='page in pages' key='$index' >
       <router-link 
+        class="menu-link"
+        v-for='page in pages' 
+        key='$index' 
         :to="page.router" >
-        {{page.name}}
+        <el-menu-item index='$index'>
+          <div class="menu-content">{{page.name}}</div>
+        </el-menu-item>
       </router-link>
-    </el-menu-item>
   </el-menu>
 </template>
 <script>
@@ -35,6 +38,12 @@ export default {
 <style>
 .el-menu {
   height: 100%;
+}
+.menu-link {
+  text-decoration: none;
+}
+.menu-content {
+  color: #000;
 }
 </style>
 
