@@ -3,7 +3,13 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.leon.dao.ClassDao">
+
+    <!--查询所有-->
     <select id="getAll" resultType="com.leon.domain.ClassInSchool">
         SELECT * FROM class_in_school
     </select>
+
+    <insert id="insertClass" parameterType="com.leon.domain.ClassInSchool">
+      INSERT INTO class_in_school (teacher, classNo, floor) VALUES (#{teacher}, #{classNo}, #{floor} )
+    </insert>
 </mapper>

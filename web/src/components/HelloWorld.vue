@@ -18,7 +18,18 @@ export default {
   name: "HelloWorld",
   mounted() {
     fetch
-      .get("/api/app/info")
+      .get("/api/class/info")
+      .then(res => {
+        this.classes = res
+      })
+      .catch(err => console.log(err));
+
+    fetch
+      .post("/api/class/save", {
+        teacher: 'test',
+        classNo: '666',
+        floor: 88
+      })
       .then(res => {
         this.classes = res
       })

@@ -14,4 +14,5 @@ import java.util.List;
 @Mapper
 public interface ClassDao {
     public List<ClassInSchool> getAll();
+    public void insertClass(ClassInSchool classInSchool);
 }

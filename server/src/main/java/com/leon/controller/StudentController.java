@@ -5,9 +5,7 @@ import com.leon.base.Head;
 import com.leon.dao.StudentDao;
 import com.leon.domain.Student;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -32,4 +30,9 @@ public class StudentController {
         map.put("user", result);
         return new BaseResponse(result, new Head(0));
     }
+
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    public void save(@RequestParam Student student) {
+    }
+
 }

@@ -10,6 +10,7 @@ import com.leon.dao.ClassDao;
 import com.leon.domain.ClassInSchool;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,8 +20,8 @@ import java.util.Map;
 
 
 @RestController
-@RequestMapping("/app")
-public class AppController {
+@RequestMapping("/class")
+public class ClassController {
     @Autowired
     private ClassDao clsDao;
 
@@ -33,5 +34,11 @@ public class AppController {
         Map<String, Object> map = new HashMap<>();
         map.put("user", result);
         return new BaseResponse(result, new Head(0));
+    }
+
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    public void save(@RequestBody ClassInSchool classInSchool) {
+        System.out.println(classInSchool);
+        clsDao.insertClass(classInSchool);
     }
 }
