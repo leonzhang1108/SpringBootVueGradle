@@ -8,13 +8,15 @@ import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
 /**
  * Author: jianliangzhang
  * Date: 2017/11/24
  * Time: 15:40
  */
-
 @SpringBootApplication
+@EnableSwagger2
 public class Application {
 
     private static final Logger logger = LoggerFactory.getLogger(Application.class);

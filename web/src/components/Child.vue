@@ -36,5 +36,7 @@ export default {
 </script>
 
 <style>
-
+.el-input {
+  margin-bottom: 10px;
+}
 </style>

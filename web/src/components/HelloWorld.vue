@@ -23,17 +23,14 @@ export default {
         this.classes = res
       })
       .catch(err => console.log(err));
+
   },
   data() {
     return {
-      msg: "Welcome to Your Vue.js Appgggg",
+      msg: "Welcome to Vue.js App",
       classes: [],
       value: ''
     };
   }
 };
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-</style>
