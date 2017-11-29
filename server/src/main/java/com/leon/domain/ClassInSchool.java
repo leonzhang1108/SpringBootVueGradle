@@ -1,5 +1,7 @@
 package com.leon.domain;
 
+import com.leon.base.domain.BaseResponse;
+
 import java.io.Serializable;
 
 /**

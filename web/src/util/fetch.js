@@ -2,7 +2,7 @@
  * @Author: Leon Zhang 
  * @Date: 2017-11-21 13:07:21 
  * @Last Modified by: Leon Zhang
- * @Last Modified time: 2017-11-24 17:50:30
+ * @Last Modified time: 2017-11-29 15:02:05
  */
 
 const Axios = require('axios')
@@ -52,9 +52,9 @@ axiosModel.interceptors.response.use(function (response) {
   let data = response.data
   let head = data.head
   if (head && head.errcode === 0) {
-    return Promise.resolve(data.data || {})
+    return Promise.resolve(data.result || {})
   } else {
-    return Promise.reject(data.data || {})
+    return Promise.reject(data.result || {})
   }
 })
 

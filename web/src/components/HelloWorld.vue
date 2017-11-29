@@ -1,47 +1,39 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-   
+    <el-select v-model="value" placeholder="请选择">
+      <el-option
+        v-for="item in classes"
+        :key="item.id"
+        :label="item.teacher"
+        :value="item.id">
+      </el-option>
+    </el-select>
   </div>
 </template>
 
 <script>
-import fetch from 'util/fetch'
+import fetch from "util/fetch";
 export default {
-  name: 'HelloWorld',
+  name: "HelloWorld",
   mounted() {
     fetch
-      .get('/api/app/info')
+      .get("/api/app/info")
       .then(res => {
-          console.log(res)
+        this.classes = res
       })
-      .catch(err => console.log(err))
+      .catch(err => console.log(err));
   },
-  data () {
+  data() {
     return {
-      msg: 'Welcome to Your Vue.js Appgggg'
-    }
+      msg: "Welcome to Your Vue.js Appgggg",
+      classes: [],
+      value: ''
+    };
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
-}
 </style>
