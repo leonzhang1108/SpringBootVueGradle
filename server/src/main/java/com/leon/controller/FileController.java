@@ -17,7 +17,7 @@ import java.nio.file.Paths;
 @RequestMapping("/file")
 public class FileController {
 
-    private static String UPLOADED_FOLDER = "D:/project/study/github/SpringBootVueGradle/temp/";
+    private static String UPLOADED_FOLDER = "temp/";
 
 
 
