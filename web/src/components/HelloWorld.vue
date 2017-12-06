@@ -22,6 +22,7 @@
         <el-select v-model="value" placeholder="班级">
           <el-option
             v-for="item in classes"
+            v-for="item in classes"
             :key="item.id"
             :label="item.teacher"
             :value="item.teacher">
@@ -31,7 +32,7 @@
       <el-col :span="6">
         <el-upload
           class="upload-demo"
-          action="/api/file/upload"
+          action="/file/upload"
           :on-preview="handlePreview"
           :on-remove="handleRemove"
           multiple
@@ -41,15 +42,11 @@
           <el-button size="small" type="primary">点击上传</el-button>
           <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
         </el-upload>
-        <!-- <form method="POST" action="api/file/upload" enctype="multipart/form-data">
-          <input type="file" name="file" /><br/><br/>
-          <input type="submit" value="Submit" />
-        </form> -->
       </el-col>
     </el-row>
 
-    
-    
+
+
   </div>
 </template>
 
@@ -63,7 +60,7 @@ export default {
   methods: {
     getClasses() {
       fetch
-        .get("/api/class/info")
+        .get("/class/info")
         .then(res => {
           this.classes = res
         })
@@ -74,8 +71,8 @@ export default {
         console.log(this.form)
         if(valid) {
           fetch
-            .post("/api/class/save", this.form)
-            .then(res => {  
+            .post("/class/save", this.form)
+            .then(res => {
               this.$message('插入成功')
               this.$refs["classForm"].resetFields()
               this.getClasses()
