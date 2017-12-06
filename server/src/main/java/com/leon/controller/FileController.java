@@ -3,8 +3,10 @@ package com.leon.controller;
 import com.leon.base.BaseResponse;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
-import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 /**`
  * Author: jianliangzhang
@@ -15,11 +17,33 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("/file")
 public class FileController {
 
-    @RequestMapping(value="/upload", method = RequestMethod.POST)
+    private static String UPLOADED_FOLDER = "D:/project/study/github/SpringBootVueGradle/temp/";
 
+
+
+    @RequestMapping(value="/upload", method = RequestMethod.POST)
     public @ResponseBody BaseResponse uploadFile(
-            @RequestParam("file") MultipartFile[] files, HttpServletRequest request) {
-        System.out.println(files.length);
+            @RequestParam("file") MultipartFile file) {
+        if (file.isEmpty()) {
+            return new BaseResponse();
+        }
+
+
+        doUploadFile(file);
+
         return new BaseResponse();
+    }
+
+    private void doUploadFile(MultipartFile file) {
+        try {
+
+            // Get the file and save it somewhere
+            byte[] bytes = file.getBytes();
+            Path path = Paths.get(UPLOADED_FOLDER + file.getOriginalFilename());
+            Files.write(path, bytes);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
