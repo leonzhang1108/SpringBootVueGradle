@@ -22,7 +22,6 @@
         <el-select v-model="value" placeholder="班级">
           <el-option
             v-for="item in classes"
-            v-for="item in classes"
             :key="item.id"
             :label="item.teacher"
             :value="item.teacher">
