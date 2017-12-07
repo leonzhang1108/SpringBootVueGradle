@@ -59,7 +59,7 @@ export default {
   methods: {
     getClasses() {
       fetch
-        .get("/class/info")
+        .get("/api/class/info")
         .then(res => {
           this.classes = res
         })
@@ -70,7 +70,7 @@ export default {
         console.log(this.form)
         if(valid) {
           fetch
-            .post("/class/save", this.form)
+            .post("/api/class/save", this.form)
             .then(res => {
               this.$message('插入成功')
               this.$refs["classForm"].resetFields()
